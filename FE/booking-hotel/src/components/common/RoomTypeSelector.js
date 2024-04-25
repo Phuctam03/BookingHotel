@@ -7,9 +7,13 @@ export default function RoomTypeSelector({ handleRoomInputChange, newRoom }) {
   const [newRoomType, setNewRoomType] = useState("");
 
   useEffect(() => {
-    ApiRoom.getRoomTypes().then((data) => {
-      setRoomTypes(data);
-    });
+    ApiRoom.getRoomTypes()
+      .then((data) => {
+        setRoomTypes(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   const handleNewRoomTypeInputChange = (e) => {
@@ -31,8 +35,8 @@ export default function RoomTypeSelector({ handleRoomInputChange, newRoom }) {
       {roomTypes.length > 0 && (
         <div>
           <select
-            className="form-control mb-3"
-            id="roomType"
+            required
+            className="form-select"
             name="roomType"
             value={newRoom.roomType}
             onChange={(e) => {
@@ -60,9 +64,10 @@ export default function RoomTypeSelector({ handleRoomInputChange, newRoom }) {
                 type="text"
                 placeholder="Enter a new room Type"
                 onChange={handleNewRoomTypeInputChange}
+                value={newRoomType}
               ></input>
               <button
-                className="btn btn-outline-dark"
+                className="btn btn-hotel"
                 type="button"
                 onClick={handleAddNewRoomType}
               >

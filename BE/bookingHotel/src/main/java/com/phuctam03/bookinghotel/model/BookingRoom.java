@@ -48,8 +48,8 @@ public class BookingRoom {
 
     public BookingRoom(){}
 
-    public int calculateToNumBerOfGuest(){
-        return  this.NumberOfAdults + this.NumberOfChildren;
+    public void calculateToNumBerOfGuest(){
+         this.totalNumberOfGuest = this.NumberOfChildren + this.NumberOfAdults;
     }
 
     public  BookingRoom(String bookingConfirmationCode){

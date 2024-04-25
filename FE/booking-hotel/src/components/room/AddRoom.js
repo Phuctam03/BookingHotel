@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import * as ApiRoom from "../utils/ApiFuntion";
 import RoomTypeSelector from "../common/RoomTypeSelector";
+import ExistingRoom from "./ExistingRoom";
+import { Link } from "react-router-dom";
 
 export default function AddRoom() {
   const [room, setNewRoom] = useState({
@@ -31,7 +33,6 @@ export default function AddRoom() {
     const selectedImage = e.target.files[0];
     setNewRoom({ ...room, photo: selectedImage });
     setImagePreview(URL.createObjectURL(selectedImage));
-    console.log(123);
   };
 
   const handleSubmit = async (e) => {
@@ -58,7 +59,7 @@ export default function AddRoom() {
   return (
     <div>
       <>
-        <section className="container,mt-5 mb-5">
+        <section className="container mt-5 mb-5">
           <div className="row justify-content-center">
             <div className="col-md-8 col-lg-6">
               <h2 className="mt-5  mb-2">Add New Room</h2>
@@ -122,7 +123,10 @@ export default function AddRoom() {
                   )}
                 </div>
 
-                <div className="d-grid d-md-flex mt-2">
+                <div className="d-grid d-md-flex mt-2 gap-2">
+                  <Link to={"/existing-rooms"} className="btn btn-outline-info">
+                    Back
+                  </Link>
                   <button className="btn btn-outline-primary ml-5">
                     Save Room
                   </button>
