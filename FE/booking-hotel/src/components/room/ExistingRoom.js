@@ -8,7 +8,7 @@ import RoomPaginator from "../common/RoomPaginator";
 import { FaEdit, FaEye, FaPlus, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export default function ExistingRoom() {
+const ExistingRoom = () => {
   const [rooms, setRooms] = useState([{ id: "", roomType: "", roomPrice: "" }]);
   const [currentPage, setCurrentPage] = useState(1);
   const [roomsPerPage] = useState(8);
@@ -177,4 +177,5 @@ export default function ExistingRoom() {
       )}
     </>
   );
-}
+};
+export default ExistingRoom;

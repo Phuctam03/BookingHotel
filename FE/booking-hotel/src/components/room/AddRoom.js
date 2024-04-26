@@ -4,7 +4,7 @@ import RoomTypeSelector from "../common/RoomTypeSelector";
 import ExistingRoom from "./ExistingRoom";
 import { Link } from "react-router-dom";
 
-export default function AddRoom() {
+const AddRoom = () => {
   const [room, setNewRoom] = useState({
     photo: null,
     roomType: "",
@@ -138,4 +138,5 @@ export default function AddRoom() {
       </>
     </div>
   );
-}
+};
+export default AddRoom;

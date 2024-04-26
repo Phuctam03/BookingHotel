@@ -65,17 +65,24 @@ public class BookingRoomService implements  IBookingRoomService{
                 .noneMatch(existing->
                         bookingRequest.getCheckInDate().equals(existing.getCheckInDate())
                                 || bookingRequest.getCheckOutDate().isBefore(existing.getCheckOutDate())
+
                                 || (bookingRequest.getCheckInDate().isAfter(existing.getCheckInDate())
                                 && bookingRequest.getCheckInDate().isBefore(existing.getCheckOutDate()))
+
                                 || (bookingRequest.getCheckInDate().isBefore(existing.getCheckInDate())
 
                                 && bookingRequest.getCheckOutDate().equals(existing.getCheckOutDate()))
+
+
                                 || (bookingRequest.getCheckInDate().isBefore(existing.getCheckInDate())
 
                                 && bookingRequest.getCheckOutDate().isAfter(existing.getCheckOutDate()))
 
+
+
                                 || (bookingRequest.getCheckInDate().equals(existing.getCheckOutDate())
                                 && bookingRequest.getCheckOutDate().equals(existing.getCheckInDate()))
+
 
                                 || (bookingRequest.getCheckInDate().equals(existing.getCheckOutDate())
                                 && bookingRequest.getCheckOutDate().equals(bookingRequest.getCheckInDate()))

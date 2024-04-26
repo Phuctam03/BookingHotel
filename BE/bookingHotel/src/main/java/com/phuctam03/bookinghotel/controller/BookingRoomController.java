@@ -16,6 +16,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -38,6 +40,7 @@ public class BookingRoomController {
         List<BookingResponse> bookingResponses = new ArrayList<>();
         for (BookingRoom booking : bookings){
             BookingResponse bookingResponse = getBookingRespone(booking);
+            System.out.println(bookingResponse.getCheckInDate());
             bookingResponses.add(bookingResponse);
         }
         return ResponseEntity.ok(bookingResponses);

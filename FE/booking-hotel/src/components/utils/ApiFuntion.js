@@ -168,8 +168,8 @@ export const registration = async (registration) => {
 
 export const login = async (login) => {
   try {
-    const response = await api.post(`/auth/login`, login);
-    if (response.status >= 200 && response.status < 300) {
+    const response = await api.post("/auth/login", login);
+    if (response.status === 200) {
       return response.data;
     } else {
       return null;
@@ -205,6 +205,7 @@ export const getUser = async (userId, token) => {
     const response = await api.get(`/users/${userId}`, {
       headers: getHeader(),
     });
+    return response.data;
   } catch (error) {
     throw error;
   }

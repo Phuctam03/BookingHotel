@@ -10,10 +10,10 @@ export default function DateSlider({ onDateChange, onFilterChange }) {
     key: "selection",
   });
 
-  const handleSelect = (range) => {
-    setDateRange(range.selection);
-    onDateChange(range.selection.startDate, range.selection.endDate);
-    onFilterChange(range.selection.startDate, range.selection.endDate);
+  const handleSelect = (ranges) => {
+    setDateRange(ranges.selection);
+    onDateChange(ranges.selection.startDate, ranges.selection.endDate);
+    onFilterChange(ranges.selection.startDate, ranges.selection.endDate);
   };
 
   const handleClearFilter = () => {

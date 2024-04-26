@@ -162,6 +162,7 @@ export default function Profile() {
                   </div>
                 </div>
               </div>
+
               <h4 className="card-title text-center">Booking History</h4>
               {bookings.length > 0 ? (
                 <table className="table table-bordered table-hover shadow">
@@ -183,12 +184,16 @@ export default function Profile() {
                         <td>{booking.room.id}</td>
                         <td>{booking.room.roomType}</td>
                         <td>
-                          {moment(booking.checkInDate).format("DD-MM-YYYY")}
+                          {moment(booking.checkInDate)
+                            .subtract(1, "month")
+                            .format("DD-MM-YYYY")}
                         </td>
                         <td>
-                          {moment(booking.checkOutDate).format("DD-MM-YYYY")}
+                          {moment(booking.checkOutDate)
+                            .subtract(1, "month")
+                            .format("DD-MM-YYYY")}
                         </td>
-                        <td>{booking.bookingConfirmtionCode}</td>
+                        <td>{booking.bookingConfirmationCode}</td>
                         <td className="text-success">On-going</td>
                       </tr>
                     ))}

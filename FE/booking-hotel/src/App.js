@@ -1,14 +1,11 @@
-import logo from "./logo.svg";
 import "./App.css";
 import AddRoom from "./components/room/AddRoom";
-import RoomTypeSelector from "./components/common/RoomTypeSelector";
 import ExistingRoom from "./components/room/ExistingRoom";
-import { Route, Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./components/home/Home";
 import EditRoom from "./components/room/EditRoom";
-import NavBar from "./components/layout/NavBar";
 import Footer from "./components/layout/Footer";
-import RoomListing from "./components/room/RoomListing";
+import { RoomListing } from "./components/room/RoomListing";
 import Admin from "./components/admin/Admin";
 import Checkout from "./components/bookings/Checkout";
 import BookingSuccess from "./components/bookings/BookingSuccess";
@@ -17,12 +14,12 @@ import FindBooking from "./components/bookings/FindBooking";
 import Login from "./components/auth/Login";
 import Registration from "./components/auth/Registration";
 import Profile from "./components/auth/Profile";
-// import { AuthProvider } from "./components/auth/AuthProvider";
-
+import RequireAuth from "./components/auth/RequireAuth";
+import NavBar from "./components/layout/NavBar";
+import AuthProvider from "./components/auth/AuthProvider";
 function App() {
   return (
-    <>
-      {/* <AuthProvider> */}
+    <AuthProvider>
       <main>
         <NavBar></NavBar>
         <Routes>
@@ -38,7 +35,14 @@ function App() {
             element={<RoomListing></RoomListing>}
           ></Route>
           <Route path="/admin" element={<Admin />}></Route>
-          <Route path="/book-room/:roomId" element={<Checkout />}></Route>
+          <Route
+            path="/book-room/:roomId"
+            element={
+              <RequireAuth>
+                <Checkout />
+              </RequireAuth>
+            }
+          ></Route>
           <Route path="/Booking-success" element={<BookingSuccess />} />
           <Route path="/existing-bookings" element={<Booking />} />
           <Route path="/find-booking" element={<FindBooking />} />
@@ -49,8 +53,7 @@ function App() {
         </Routes>
         <Footer></Footer>
       </main>
-      {/* </AuthProvider> */}
-    </>
+    </AuthProvider>
   );
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as apiFunction from "../utils/ApiFuntion";
+import { el } from "date-fns/locale";
 
 export default function Registration() {
   const [registration, setRegistration] = useState({
@@ -22,14 +23,18 @@ export default function Registration() {
     e.preventDefault();
     try {
       const data = await apiFunction.registration(registration);
-      setSuccessMessage(data);
-      setErrorMessage("");
-      setRegistration({
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-      });
+      if (data === "Invalid register".trim()) {
+        setErrorMessage("Invalid register");
+      } else {
+        setSuccessMessage(data);
+        setErrorMessage("");
+        setRegistration({
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+        });
+      }
     } catch (error) {
       setSuccessMessage("");
       setErrorMessage(`Registration error : ${error.message}`);
@@ -39,7 +44,7 @@ export default function Registration() {
   setTimeout(() => {
     setErrorMessage("");
     setSuccessMessage("");
-  }, 4000);
+  }, 5000);
 
   return (
     <section className="container col mt-5 mb-5">

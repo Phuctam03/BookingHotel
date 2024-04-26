@@ -1,4 +1,7 @@
-import React, { createContext, useContext, useState } from "react";
+import React from "react";
+import { createContext } from "react";
+import { useContext } from "react";
+import { useState } from "react";
 import { jwtDecode } from "jwt-decode";
 
 export const AuthContext = createContext({
@@ -7,7 +10,7 @@ export const AuthContext = createContext({
   handleLogout: () => {},
 });
 
-export const AuthProvider = ({ children }) => {
+const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const handleLogin = (token) => {
@@ -26,12 +29,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthProvider.Provider value={{ user, handleLogin, handleLogout }}>
+    <AuthContext.Provider value={{ user, handleLogin, handleLogout }}>
       {children}
-    </AuthProvider.Provider>
+    </AuthContext.Provider>
   );
 };
 
 export const useAuth = () => {
   return useContext(AuthContext);
 };
+
+export default AuthProvider;

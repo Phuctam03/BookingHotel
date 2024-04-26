@@ -13,11 +13,13 @@ export default function Booking() {
       apiFunction
         .getAllBooking()
         .then((data) => {
+          console.log(data);
           setbookingInfo(data);
           setIsLoading(false);
         })
         .catch((err) => {
           setError(err.message);
+          setIsLoading(false);
         });
     }, 1000);
   }, []);

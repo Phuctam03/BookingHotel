@@ -19,13 +19,13 @@ export default function BookingTable({ bookinginfo, handleBookingCanllation }) {
         );
       });
     }
-
     setFilteredBooking(filtered);
   };
 
   useEffect(() => {
     setFilteredBooking(bookinginfo);
   }, [bookinginfo]);
+
   return (
     <section className="p-4">
       <DateSlider onDateChange={filterBooking} onFilterChange={filterBooking} />

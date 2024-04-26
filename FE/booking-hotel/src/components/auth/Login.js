@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import * as apiFunction from "../utils/ApiFuntion";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { AuthContext } from "./AuthProvider";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthProvider";
 
 export default function Login() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -11,8 +11,9 @@ export default function Login() {
   });
 
   const navigate = useNavigate();
-
-  const { handleLogin } = useContext(AuthContext);
+  const auth = useAuth();
+  const location = useLocation();
+  const redirectUrl = location.state?.path || "/";
 
   const handleInputChange = (e) => {
     const name = e.target.name;
@@ -25,9 +26,8 @@ export default function Login() {
     const data = await apiFunction.login(login);
     if (data) {
       const token = data.token;
-      handleLogin(token);
-      navigate("/");
-      // window.location.reload(); // tai lai trang web
+      auth.handleLogin(token);
+      navigate(redirectUrl, { replace: true });
     } else {
       setErrorMessage("Invalid username or password . Please try again");
     }

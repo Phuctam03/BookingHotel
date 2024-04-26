@@ -39,9 +39,12 @@ public class AuthController {
     @PostMapping("/register-user")
     public ResponseEntity<?>  registerUser(@RequestBody User user){
         try {
-            userService.registerUser(user);
-            return  ResponseEntity.ok("Registration successfully");
-
+            if(user.getEmail() == "" || user.getPassword() == "" || user.getFirstName() == "" || user.getLastName() ==""){
+                return  ResponseEntity.ok("Invalid register");
+            }else {
+                userService.registerUser(user);
+                return ResponseEntity.ok("Registration successfully");
+            }
         }catch (UserAlreadyExistsException e){
             return  ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
         }

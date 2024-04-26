@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import Logout from "../auth/Logout";
 import { AuthContext } from "../auth/AuthProvider";
 
-export default function NavBar() {
+const NavBar = () => {
   const [showAccount, setShowAccount] = useState(false);
   const { user } = useContext(AuthContext);
 
@@ -93,4 +93,6 @@ export default function NavBar() {
       </div>
     </nav>
   );
-}
+};
+
+export default NavBar;

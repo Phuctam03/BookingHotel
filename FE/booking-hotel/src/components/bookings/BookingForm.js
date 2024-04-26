@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import * as ApiFunction from "../utils/ApiFuntion";
 import { useNavigate, useParams } from "react-router-dom";
 import moment from "moment"; // thu vien format ngay thagn nam
-import RoomCarousel from "../common/RoomCarousel";
 import { Form } from "react-bootstrap";
 import BookingSummary from "./BookingSummary";
 
@@ -11,9 +10,11 @@ export default function BookingForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [roomPrice, setRoomPrice] = useState(0);
+
+  const currentUser = localStorage.getItem("userId");
   const [booking, setBooking] = useState({
     guestName: "",
-    guestEmail: "",
+    guestEmail: currentUser,
     checkInDate: "",
     checkOutDate: "",
     numberOfAdults: "",

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import RoomTypeSelector from "../common/RoomTypeSelector";
 
-export default function EditRoom() {
+const EditRoom = () => {
   const [room, setRoom] = useState({
     photo: null,
     roomType: "",
@@ -155,4 +155,5 @@ export default function EditRoom() {
       </>
     </div>
   );
-}
+};
+export default EditRoom;
