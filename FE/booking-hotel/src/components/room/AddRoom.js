@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import * as ApiRoom from "../utils/ApiFuntion";
 import RoomTypeSelector from "../common/RoomTypeSelector";
-import ExistingRoom from "./ExistingRoom";
 import { Link } from "react-router-dom";
 
 const AddRoom = () => {
@@ -43,18 +42,21 @@ const AddRoom = () => {
         room.roomType,
         room.roomPrice
       );
-
-      if (addRoom !== undefined) {
+      if (addRoom !== false) {
         setSuccessMessage("A new room was added to the database");
         setNewRoom({ photo: null, roomType: "", roomPrice: "" });
         setImagePreview("");
         setErrorMessage("");
       } else {
-        setErrorMessage("Error adding room ");
+        setErrorMessage("Error adding new room ");
       }
     } catch (error) {
       setErrorMessage(error.message);
     }
+    setTimeout(() => {
+      setSuccessMessage("");
+      setErrorMessage("");
+    }, 3000);
   };
   return (
     <div>
@@ -107,6 +109,7 @@ const AddRoom = () => {
                     Room Photo
                   </label>
                   <input
+                    required
                     id="photo"
                     name="photo"
                     type="file"
@@ -116,7 +119,6 @@ const AddRoom = () => {
                   {imagePreview && (
                     <img
                       src={imagePreview}
-                      alt="Preview Room Photo"
                       style={{ maxWidth: "400px", maxHeight: "400px" }}
                       className="mb-3"
                     ></img>

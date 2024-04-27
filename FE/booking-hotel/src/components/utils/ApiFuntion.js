@@ -6,24 +6,41 @@ export const api = axios.create({
 
 export const getHeader = () => {
   const token = localStorage.getItem("token");
-
-  return {
-    Authorization: `Bearer ${token}`,
-    "Content-Type": "application/json",
-  };
+  if (token) {
+    console.log(token);
+    return {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    };
+  } else {
+    return null;
+  }
 };
 
 /* this function add new Room*/
 export const addRoom = async (photo, roomType, roomPrice) => {
+  const tokenHeader = getHeader();
+  console.log(tokenHeader);
+  if (!tokenHeader) {
+    return false;
+  }
+  if (!photo || !roomType || !roomPrice) {
+    return false;
+  }
   const formData = new FormData();
   formData.append("photo", photo);
   formData.append("roomType", roomType);
   formData.append("roomPrice", roomPrice);
-
-  const respone = await api.post("/rooms/add/new-room", formData, {
-    headers: getHeader(),
-  });
-  return respone.status === 200 ? true : false;
+  try {
+    const response = await api.post("/rooms/add/new-room", formData, {
+      headers: tokenHeader,
+    });
+    console.log(response);
+    return response.status === 200;
+  } catch (error) {
+    console.error("Error adding new Room :", error);
+    return false;
+  }
 };
 
 /** this function get room type from the database */

@@ -33,7 +33,6 @@ const EditRoom = () => {
     const selectedImage = e.target.files[0];
     setRoom({ ...room, photo: selectedImage });
     setImagePreview(URL.createObjectURL(selectedImage));
-    console.log(123);
   };
 
   const handleRoomInputChange = (e) => {

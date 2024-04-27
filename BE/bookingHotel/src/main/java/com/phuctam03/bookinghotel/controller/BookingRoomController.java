@@ -40,7 +40,6 @@ public class BookingRoomController {
         List<BookingResponse> bookingResponses = new ArrayList<>();
         for (BookingRoom booking : bookings){
             BookingResponse bookingResponse = getBookingRespone(booking);
-            System.out.println(bookingResponse.getCheckInDate());
             bookingResponses.add(bookingResponse);
         }
         return ResponseEntity.ok(bookingResponses);

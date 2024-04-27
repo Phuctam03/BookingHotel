@@ -4,15 +4,14 @@ import com.phuctam03.bookinghotel.exception.PhotoRetrievalException;
 import com.phuctam03.bookinghotel.exception.ResourceNotFoundException;
 import com.phuctam03.bookinghotel.model.BookingRoom;
 import com.phuctam03.bookinghotel.model.Room;
-import com.phuctam03.bookinghotel.response.BookingResponse;
 import com.phuctam03.bookinghotel.response.RoomResponse;
 import com.phuctam03.bookinghotel.service.BookingRoomService;
 import com.phuctam03.bookinghotel.service.IRoomService;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.codec.binary.Base64;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +37,9 @@ public class RoomController {
 
 
 
-    @PostMapping("/add/new-room")
+    @RequestMapping(value = "/add/new-room",
+            method = RequestMethod.POST ,
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<RoomResponse> addNewRoom(
             @RequestParam("photo") MultipartFile photo,
@@ -92,7 +93,6 @@ public class RoomController {
                                                    @RequestParam(required = false)   MultipartFile photo) throws IOException, SQLException {
 
         byte[] photoBytes = photo != null && !photo.isEmpty() ? photo.getBytes() : roomService.getRoomPhotoByRoomId(roomId);
-
         Blob photoBlob = photoBytes != null && photoBytes.length > 0 ? new SerialBlob(photoBytes) : null;
         Room theRoom = roomService.updateRoom(roomId,roomType,roomPrice,photoBytes);
         theRoom.setPhoto(photoBlob);
