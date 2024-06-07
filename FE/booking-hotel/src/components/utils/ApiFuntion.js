@@ -7,7 +7,6 @@ export const api = axios.create({
 export const getHeader = () => {
   const token = localStorage.getItem("token");
   if (token) {
-    console.log(token);
     return {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
@@ -19,11 +18,6 @@ export const getHeader = () => {
 
 /* this function add new Room*/
 export const addRoom = async (photo, roomType, roomPrice) => {
-  const tokenHeader = getHeader();
-  console.log(tokenHeader);
-  if (!tokenHeader) {
-    return false;
-  }
   if (!photo || !roomType || !roomPrice) {
     return false;
   }
@@ -32,10 +26,7 @@ export const addRoom = async (photo, roomType, roomPrice) => {
   formData.append("roomType", roomType);
   formData.append("roomPrice", roomPrice);
   try {
-    const response = await api.post("/rooms/add/new-room", formData, {
-      headers: tokenHeader,
-    });
-    console.log(response);
+    const response = await api.post("/rooms/add/new-room", formData);
     return response.status === 200;
   } catch (error) {
     console.error("Error adding new Room :", error);
@@ -87,10 +78,12 @@ export const updateRoom = async (roomId, roomData) => {
   formData.append("roomType", roomData.roomType);
   formData.append("roomPrice", roomData.roomPrice);
   formData.append("photo", roomData.photo);
-  const respone = await api.put(`/rooms/update/${roomId}`, formData, {
-    headers: getHeader(),
-  });
-  return respone;
+  try {
+    const respone = await api.put(`/rooms/update/${roomId}`, formData);
+    return respone;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // this is function get roomByid from the database
@@ -134,8 +127,6 @@ export const getAllBooking = async () => {
 export const getBookingByConfirmationCode = async (confirmationCode) => {
   try {
     const respone = await api.get(`/bookings/confirmation/${confirmationCode}`);
-    console.log(respone);
-
     return respone.data;
   } catch (error) {
     if (error.response && error.response.data) {
@@ -164,6 +155,7 @@ export const getAvailableRooms = async (
     const response = await api.get(
       `/rooms/available-rooms?checkInDate=${checkInDate}&checkOutDate=${checkOutDate}&roomType=${roomType}`
     );
+    console.log(checkInDate);
     return response;
   } catch (error) {
     console.log(error);
@@ -205,6 +197,28 @@ export const getUserProfile = async (userId, token) => {
     return response.data;
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const getAllUser = async () => {
+  try {
+    const response = await api.get("/users/all");
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Error fetching user");
+  }
+};
+
+export const getAllUserByEmail = async (email) => {
+  try {
+    const response = await api.get(`/users/search/${email}`, {
+      headers: getHeader(),
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(`${error.message}`);
   }
 };
 

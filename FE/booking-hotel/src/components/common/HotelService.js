@@ -18,9 +18,9 @@ export default function HotelService() {
         <Header er title={"Our Services"} />
         <Row>
           <h4 className="text-center">
-            Services at <span className="hotel-color">LakeSide -</span> Hotel
+            Phục Vụ tại <span className="hotel-color">LakeSide -</span> Hotel
             <span className="gap-2"></span>
-            <FaClock /> -24-Hour Front Desk
+            <FaClock /> -Lễ Tân - 24 giờ
           </h4>
         </Row>
         <hr />
@@ -32,9 +32,7 @@ export default function HotelService() {
                   <FaWifi />
                   Wifi
                 </Card.Title>
-                <Card.Text>
-                  Stay connected with high-speed internet access.
-                </Card.Text>
+                <Card.Text>Kết nối với truy cập mạng cao</Card.Text>
               </Card.Body>
             </Card>
           </Col>
@@ -44,9 +42,9 @@ export default function HotelService() {
               <Card.Body>
                 <Card.Title className="hotel-color">
                   <FaUtensils />
-                  Breakfast
+                  Bữa sáng
                 </Card.Title>
-                <Card.Text>Star</Card.Text>
+                <Card.Text>Chất lượng đảm bảo</Card.Text>
               </Card.Body>
             </Card>
           </Col>
@@ -56,10 +54,10 @@ export default function HotelService() {
               <Card.Body>
                 <Card.Title className="hotel-color">
                   <FaTshirt />
-                  Laundry
+                  Giặt là
                 </Card.Title>
                 <Card.Text>
-                  Keep your clothes clean and fresh with laundry service.
+                  Giữ cho quần áo của bạn thật thoải mái và sách sẽ .
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -73,7 +71,7 @@ export default function HotelService() {
                   Mini-bar
                 </Card.Title>
                 <Card.Text>
-                  Enjoy a refreshing drink or snack from our in-room mini-bar
+                  Sự Thoải mái và tận hưởng khi đến Bar-Corse
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -84,10 +82,10 @@ export default function HotelService() {
               <Card.Body>
                 <Card.Title className="hotel-color">
                   <FaParking />
-                  Parking
+                  Bẫy đỗ xe
                 </Card.Title>
                 <Card.Text>
-                  Park your car conveniently in our-site parking lot.
+                  Xe của bạn sẽ có chỗ để tiện lợi và an toàn
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -98,10 +96,10 @@ export default function HotelService() {
               <Card.Body>
                 <Card.Title className="hotel-color">
                   <FaSnowflake />
-                  Air conditioning
+                  Điều hòa
                 </Card.Title>
                 <Card.Text>
-                  Stay cool and comforatable with our air conditioning system.
+                  Thoải mái với máy lạnh tại khách sạn chúng tôi
                 </Card.Text>
               </Card.Body>
             </Card>

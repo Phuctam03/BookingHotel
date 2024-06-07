@@ -7,9 +7,10 @@ export default function Parallax() {
       <Container className="text-center px-5 py-5 justify-content-center">
         <div className="animated-texts bounceIn">
           <h1>
-            Welcome to <span className="hotel-color">LakeSide Hotel</span>
+            Chào Mừng đến với{" "}
+            <span className="hotel-color">LakeSide Hotel</span>
           </h1>
-          <h3>We offter the best services for all your needs</h3>
+          <h3>Chúng tôi sẽ phục vụ tất cả những thứ tốt nhất bạn cần</h3>
         </div>
       </Container>
     </div>

@@ -23,7 +23,6 @@ public class UserController {
 
 
     @GetMapping("/all")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<List<User>> getUsers(){
         List<User> users = userService.getUsers();
         if(!users.isEmpty()){
@@ -59,6 +58,16 @@ public class UserController {
             return  ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }catch (Exception e){
             return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting data :"+e.getMessage());
+        }
+    }
+    @GetMapping("/search/{email}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public ResponseEntity<List<User>> getUsersByEmail(@PathVariable("email") String email){
+        try{
+            List<User> users = userService.getUsersByEmail(email);
+            return  new ResponseEntity<>(users,HttpStatus.OK);
+        }catch (Exception e){
+             return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 

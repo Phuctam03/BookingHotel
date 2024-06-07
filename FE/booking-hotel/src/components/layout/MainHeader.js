@@ -6,9 +6,9 @@ export default function MainHeader() {
       <div className="overlay"></div>
       <div className="animated-texts overlay-content">
         <h1>
-          Welcome to <span className="hotel-color">LakeSide Hotel</span>
+          Chào Mừng đến với <span className="hotel-color">LakeSide Hotel</span>
         </h1>
-        <h4>Experience the best Hospitality in Town</h4>
+        <h4>Trải Nghiệm Phục vụ tốt Nhất Trong Nước</h4>
       </div>
     </header>
   );

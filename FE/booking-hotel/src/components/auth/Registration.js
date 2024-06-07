@@ -52,11 +52,11 @@ export default function Registration() {
       {successMessage && (
         <p className="alert alert-success">{successMessage}</p>
       )}
-      <h2>Register</h2>
+      <h2>Đăng Kí</h2>
       <form onSubmit={handleRegistration}>
         <div className="row mb-3">
           <label htmlFor="firstName" className="col-sm-2 col-form-label">
-            first name
+            Họ
           </label>
           <div>
             <input
@@ -72,7 +72,7 @@ export default function Registration() {
 
         <div className="row mb-3">
           <label htmlFor="lastName" className="col-sm-2 col-form-label">
-            last name
+            Tên
           </label>
           <div>
             <input
@@ -104,7 +104,7 @@ export default function Registration() {
 
         <div className="row mb-3">
           <label htmlFor="password" className="col-sm-2 col-form-label">
-            password
+            Mật Khẩu
           </label>
           <div>
             <input
@@ -124,7 +124,7 @@ export default function Registration() {
             className="btn btn-hotel"
             style={{ marginRight: "10px" }}
           >
-            register
+            Đăng kí
           </button>
         </div>
       </form>

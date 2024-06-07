@@ -17,6 +17,8 @@ import Profile from "./components/auth/Profile";
 import RequireAuth from "./components/auth/RequireAuth";
 import NavBar from "./components/layout/NavBar";
 import AuthProvider from "./components/auth/AuthProvider";
+import DetailRoom from "./components/room/DetailRoom";
+import UserList from "./components/userrs/UserList";
 function App() {
   return (
     <AuthProvider>
@@ -50,6 +52,8 @@ function App() {
           <Route path="/register" element={<Registration />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/logout" element={<Profile />}></Route>
+          <Route path="/detail/room/:roomId" element={<DetailRoom />}></Route>
+          <Route path="/userrs/list" element={<UserList />}></Route>
         </Routes>
         <Footer></Footer>
       </main>

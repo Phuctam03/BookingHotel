@@ -24,16 +24,16 @@ export default function RoomCarousel() {
   }, []);
 
   if (isLoading) {
-    return <div clasName="mt-5">Loading room....</div>;
+    return <div clasName="mt-5">Đang tải dữ liệu....</div>;
   }
   if (errorMessage) {
-    return <div className="text-danger mb-5 mt-5">Error:{errorMessage}</div>;
+    return <div className="text-danger mb-5 mt-5">Lỗi:{errorMessage}</div>;
   }
 
   return (
     <section className="bg-light mb-5 mt-5 shadow">
       <Link to={"/browse-all-rooms"} className="hotel-color text-center">
-        Browse all rooms
+        Danh sách Phòng
       </Link>
 
       <Container>
@@ -45,7 +45,7 @@ export default function RoomCarousel() {
                   <Col key={room.id} className="mb-4" xs={12} md={6} lg={3}>
                     <Card>
                       <Link
-                        to={`/book-room/${room.id}`}
+                        to={`/detail/room/${room.id}`}
                         className="btn btn-hotel btn-sm"
                       >
                         <Card.Img
@@ -61,14 +61,20 @@ export default function RoomCarousel() {
                           {room.roomType}
                         </Card.Title>
                         <Card.Title className="hotel-color">
-                          {room.roomPrice}/night
+                          {room.roomPrice}/Đêm
                         </Card.Title>
                         <div className="flex-shrink-0">
                           <Link
                             to={`/book-room/${room.id}`}
+                            className="btn btn-hotel btn-sm mx-2"
+                          >
+                            Đặt Phòng
+                          </Link>
+                          <Link
+                            to={`/detail/room/${room.id}`}
                             className="btn btn-hotel btn-sm"
                           >
-                            Book Now
+                            Xem Chi tiết Phòng
                           </Link>
                         </div>
                       </Card.Body>

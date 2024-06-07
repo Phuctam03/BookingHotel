@@ -72,7 +72,7 @@ export default function RoomSearch() {
           <Row className="justify-content-center">
             <Col xs={12} md={3}>
               <Form.Group controlId="checkInDate">
-                <Form.Label>Check_in_date</Form.Label>
+                <Form.Label>Ngày Đến</Form.Label>
                 <Form.Control
                   type="date"
                   name="checkInDate"
@@ -85,7 +85,7 @@ export default function RoomSearch() {
 
             <Col xs={12} md={3}>
               <Form.Group controlId="checkOutDate">
-                <Form.Label>check_out_date</Form.Label>
+                <Form.Label>Ngày rời phòng</Form.Label>
                 <Form.Control
                   type="date"
                   name="checkOutDate"
@@ -98,14 +98,14 @@ export default function RoomSearch() {
 
             <Col xs={12} md={3}>
               <Form.Group>
-                <Form.Label>room_type</Form.Label>
+                <Form.Label>Loại Phòng</Form.Label>
                 <div className="d-flex ">
                   <RoomTypeSelector
                     handleRoomInputChange={handleInputChange}
                     newRoom={searchQuery}
                   />
                   <Button variant="secondary" type="submit" className="ml-2">
-                    Search
+                    Tìm Kiếm
                   </Button>
                 </div>
               </Form.Group>
@@ -114,7 +114,7 @@ export default function RoomSearch() {
         </Form>
 
         {isLoading ? (
-          <p className="mt-4">finding avalable rooms....</p>
+          <p className="mt-4">Tìm Phòng có sẵn....</p>
         ) : availableRooms ? (
           <RoomSearchResult
             results={availableRooms}
@@ -122,7 +122,7 @@ export default function RoomSearch() {
           />
         ) : (
           <p className="mt-4">
-            No rooms available for the selected dates and room type
+            Khồng còn phòng nào có sẵn theo ngày và loại phòng được chọn
           </p>
         )}
         {errorMessage && <p className="text-danger">{errorMessage}</p>}

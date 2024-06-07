@@ -6,9 +6,11 @@ export default function Admin() {
     <section className="container mt-5">
       <h2>Welcome to Admin Panel</h2>
       <hr />
-      <Link to={"/existing-rooms"}>Manage Rooms</Link>
+      <Link to={"/existing-rooms"}>Quản Lý Phòng</Link>
       <br />
-      <Link to={"/existing-bookings"}>Manage Bookings</Link>
+      <Link to={"/existing-bookings"}>Quản Lý Đặt Phòng</Link>
+      <br />
+      <Link to={"/userrs/list"}>Quản lý người dùng</Link>
     </section>
   );
 }

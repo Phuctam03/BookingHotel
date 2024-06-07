@@ -92,7 +92,7 @@ export default function Profile() {
           className="card p-5 mt-5"
           style={{ backgroundColor: "whitesmoke" }}
         >
-          <h4 className="card-title text-center">User Information</h4>
+          <h4 className="card-title text-center">Thông tin người dùng</h4>
           <div className="card-body">
             <div className="col-md-10 mx-auto">
               <div className="card mb-3 shadow">
@@ -126,7 +126,7 @@ export default function Profile() {
 
                       <div className="form-group row">
                         <label className="col-md-2 col-form-label fw-bold">
-                          Last Name:
+                          Tên
                         </label>
                         <div className="col-md-10">
                           <p className="card-text">{user.lastName}</p>
@@ -146,7 +146,7 @@ export default function Profile() {
 
                       <div className="form-group row">
                         <label className="col-md-2 col-form-label fw-bold">
-                          Roles:
+                          Vai trò:
                         </label>
                         <div className="col-md-10">
                           <ul className="list-unstyled">
@@ -184,23 +184,19 @@ export default function Profile() {
                         <td>{booking.room.id}</td>
                         <td>{booking.room.roomType}</td>
                         <td>
-                          {moment(booking.checkInDate)
-                            .subtract(1, "month")
-                            .format("DD-MM-YYYY")}
+                          {moment(booking.checkInDate).format("DD-MM-YYYY")}
                         </td>
                         <td>
-                          {moment(booking.checkOutDate)
-                            .subtract(1, "month")
-                            .format("DD-MM-YYYY")}
+                          {moment(booking.checkOutDate).format("DD-MM-YYYY")}
                         </td>
                         <td>{booking.bookingConfirmationCode}</td>
-                        <td className="text-success">On-going</td>
+                        <td className="text-success">đang sử dụng</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               ) : (
-                <p>you have not made any bookings yet.</p>
+                <p>bạn chưa có phòng nào được đặt.</p>
               )}
               <div className="d-flex justify-content-center">
                 <div className="mx-2">
@@ -208,7 +204,7 @@ export default function Profile() {
                     className="btn btn-danger btn-sm"
                     onClick={handleDeleteAccount}
                   >
-                    Close account
+                    xóa tài khoản
                   </button>
                 </div>
               </div>
@@ -216,7 +212,7 @@ export default function Profile() {
           </div>
         </div>
       ) : (
-        <p>loading user data</p>
+        <p>đang tải dữ liệu</p>
       )}
     </div>
   );

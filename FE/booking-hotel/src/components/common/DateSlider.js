@@ -27,14 +27,14 @@ export default function DateSlider({ onDateChange, onFilterChange }) {
   };
   return (
     <>
-      <h5>Filter bookings by date</h5>
+      <h5>Lọc Phòng theo Ngày</h5>
       <DateRangePicker
         ranges={[dateRange]}
         onChange={handleSelect}
         className="mb-4"
       />
       <button onClick={handleClearFilter} className="btn btn-secondary">
-        clear Filter
+        Làm Mới
       </button>
     </>
   );

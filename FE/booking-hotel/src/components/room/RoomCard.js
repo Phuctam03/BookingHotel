@@ -8,7 +8,10 @@ export default function RoomCard({ room }) {
       <Card>
         <Card.Body className="d-flex flex-wrap align-items-center">
           <div className="flex-shrink-0 mr-3 mb-3 mb-md-0">
-            <Link to={`/book-room/${room.id}`} className="btn btn-hotel btn-sm">
+            <Link
+              to={`/detail/room/${room.id}`}
+              className="btn btn-hotel btn-sm"
+            >
               <Card.Img
                 variant="top"
                 src={`data:image/png;base64, ${room.photo}`}
@@ -22,12 +25,19 @@ export default function RoomCard({ room }) {
             <Card.Title className="hotel-color">{room.roomType}</Card.Title>
             <Card.Title className="room-price">{room.roomPrice}</Card.Title>
             <Card.Text>
-              Some room information goes here for tth guest to read through
+              Dịch Vụ Phòng Với Chất Lượng Cao Và Thoải mái Cho khách Hàng
             </Card.Text>
           </div>
           <div className="flex-shrink-0 mt-3">
             <Link to={`/book-room/${room.id}`} className="btn btn-hotel btn-sm">
-              Book Now
+              Đặt Phòng
+            </Link>
+
+            <Link
+              to={`/detail/room/${room.id}`}
+              className="btn btn-hotel btn-sm mx-2"
+            >
+              Xem Chi Tiết Phòng
             </Link>
           </div>
         </Card.Body>

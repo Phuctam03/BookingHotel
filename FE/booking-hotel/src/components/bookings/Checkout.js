@@ -57,17 +57,17 @@ export default function Checkout() {
                 <table className="table table-bordered ">
                   <tbody>
                     <tr>
-                      <th>room Type :</th>
+                      <th>Loại Phòng:</th>
                       <th>${roominfo.roomType}</th>
                     </tr>
 
                     <tr>
-                      <th>room Price :</th>
+                      <th>Giá Phòng:</th>
                       <th>${roominfo.roomPrice}</th>
                     </tr>
 
                     <tr>
-                      <th>Room Service:</th>
+                      <th>Dịch vụ Phòng:</th>
                       <td>
                         <ul>
                           <li>
@@ -77,16 +77,17 @@ export default function Checkout() {
                             <FaTv /> Netflix Premium
                           </li>
                           <li>
-                            <FaUtensils /> Breakfast
+                            <FaUtensils /> Bữa sáng
                           </li>
                           <li>
                             <FaWineGlassAlt /> Mini bar refreshment
                           </li>
                           <li>
-                            <FaCar /> Car Service
+                            <FaCar /> Phục vụ xe hơi
                           </li>
                           <li>
-                            <FaTshirt /> Laudry
+                            <FaTshirt />
+                            Giặt là
                           </li>
                         </ul>
                       </td>

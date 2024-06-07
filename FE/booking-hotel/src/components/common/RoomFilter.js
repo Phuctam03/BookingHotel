@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function RoomFilter({ data, setFilteredData }) {
+export default function RoomFilter({ data, setFilteredData, setCurrentPage }) {
   const [filter, setFilter] = useState("");
 
   const handleSelectChange = (e) => {
@@ -19,13 +19,13 @@ export default function RoomFilter({ data, setFilteredData }) {
   const roomTypes = ["", ...new Set(data.map((room) => room.roomType))];
   return (
     <div className="input-group-text" id="room-type-filter">
-      <span>Filter room by type</span>
+      <span>Tìm Kiếm Theo Loại</span>
       <select
         className="form-select"
         value={filter}
         onChange={handleSelectChange}
       >
-        <option value={""}>select a room type to filter...</option>
+        <option value={""}>Tìm kiếm Theo loại Phòng...</option>
         {roomTypes.map((type, index) => (
           <option key={index} value={type}>
             {type}
@@ -33,7 +33,7 @@ export default function RoomFilter({ data, setFilteredData }) {
         ))}
       </select>
       <button className="btn btn-hotel" type="button" onClick={clearFilter}>
-        Clear Filter
+        Làm sạch
       </button>
     </div>
   );

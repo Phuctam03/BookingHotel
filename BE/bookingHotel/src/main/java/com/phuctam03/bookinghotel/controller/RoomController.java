@@ -40,7 +40,6 @@ public class RoomController {
     @RequestMapping(value = "/add/new-room",
             method = RequestMethod.POST ,
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<RoomResponse> addNewRoom(
             @RequestParam("photo") MultipartFile photo,
             @RequestParam("roomType") String roomType,
@@ -86,11 +85,10 @@ public class RoomController {
 
 
       @PutMapping("/update/{id}")
-      @PreAuthorize("hasRole('ROLE_ADMIN')")
       public  ResponseEntity<RoomResponse> updateRoom(@PathVariable("id") Long roomId,
-                                                   @RequestParam(required = false)   String roomType,
-                                                   @RequestParam(required = false)    BigDecimal roomPrice,
-                                                   @RequestParam(required = false)   MultipartFile photo) throws IOException, SQLException {
+                                                   @RequestParam(value = "roomType",required = false)   String roomType,
+                                                   @RequestParam(value = "roomPrice",required = false)   BigDecimal roomPrice,
+                                                   @RequestParam(value = "photo",required = false)   MultipartFile photo) throws IOException, SQLException {
 
         byte[] photoBytes = photo != null && !photo.isEmpty() ? photo.getBytes() : roomService.getRoomPhotoByRoomId(roomId);
         Blob photoBlob = photoBytes != null && photoBytes.length > 0 ? new SerialBlob(photoBytes) : null;
@@ -103,7 +101,7 @@ public class RoomController {
 
 
 
-      @GetMapping("room/{id}")
+      @GetMapping("/room/{id}")
       public  ResponseEntity<Optional<RoomResponse>> getRoomById(@PathVariable("id") Long roomId){
         Optional<Room> theRoom = roomService.getRoomById(roomId);
 

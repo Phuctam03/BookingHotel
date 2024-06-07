@@ -13,7 +13,6 @@ export default function Booking() {
       apiFunction
         .getAllBooking()
         .then((data) => {
-          console.log(data);
           setbookingInfo(data);
           setIsLoading(false);
         })

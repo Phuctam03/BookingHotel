@@ -32,19 +32,19 @@ export default function BookingTable({ bookinginfo, handleBookingCanllation }) {
       <table className="table table-bordered table-hover-shadow">
         <thead>
           <tr>
-            <th>S/N</th>
-            <th>booking ID</th>
-            <th>Room ID</th>
-            <th>Room Type</th>
-            <th>Check-In Date</th>
-            <th>Check-Out Date</th>
-            <th>Guest name</th>
-            <th>Guest Email</th>
-            <th>Adults</th>
-            <th>Children</th>
-            <th>Total Guest </th>
-            <th>Confirmation Code</th>
-            <th colSpan={2}>Actions</th>
+            <th>Số thứ tự</th>
+            <th>mã đặt phòng</th>
+            <th>số ph</th>
+            <th>Loại Phòng</th>
+            <th>Ngày đến</th>
+            <th>Ngày đi</th>
+            <th>Tên khách hàng</th>
+            <th>Tên email</th>
+            <th>số lượng người trưởng thành</th>
+            <th>số lượng trẻ con</th>
+            <th>Tổng vé người đặt </th>
+            <th>mã code tìm phòng</th>
+            <th colSpan={2}>Hành động</th>
           </tr>
         </thead>
         <tbody className="text-center">

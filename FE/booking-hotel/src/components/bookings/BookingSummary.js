@@ -43,38 +43,38 @@ export default function BookingSummary({
     <div className="card card-body-mt-5">
       <div className="col-md-6"></div>
       <div className="card card-body mt-5">
-        <h4 className="card-title">Reservation Summary</h4>
+        <h4 className="card-title">Đặt phòng</h4>
         <p>
-          FullName :<strong>{booking.guestName}</strong>
+          Tên Đầy đủ :<strong>{booking.guestName}</strong>
         </p>
         <p>
           Email:<strong>{booking.guestEmail}</strong>
         </p>
         <p>
-          Check-In Date :
+          Ngày đến
           <strong>{moment(booking.checkInDate).format("DD-MM-YYYY")}</strong>
         </p>
         <p>
-          Check-Out Date :
+          Ngày Rời
           <strong>{moment(booking.checkOutDate).format("DD-MM-YYYY")}</strong>
         </p>
         <p>
-          Number of Days Booked:<strong>{numOfDays}</strong>
+          Số ngày ở lại:<strong>{numOfDays}</strong>
         </p>
 
         <div>
-          <h5>Number of Guests</h5>
+          <h5>Số khách Hàng</h5>
           <strong>
-            Adult {booking.numberOfAdults > 1 ? "s" : ""} :
+            Số lượng người lớn {booking.numberOfAdults > 1 ? "s" : ""} :
             {booking.numberOfAdults}
           </strong>
           <br />
-          <strong>Children : {booking.numberOfChildren}</strong>
+          <strong>Số lượng trẻ con : {booking.numberOfChildren}</strong>
         </div>
         {payment > 0 ? (
           <>
             <p>
-              ToTal Payment : <strong>{formatToVND(payment)}</strong>
+              Tổng tiền : <strong>{formatToVND(payment)}</strong>
             </p>
 
             {isFormValid && !isBookingConfirmed ? (
@@ -86,25 +86,22 @@ export default function BookingSummary({
                       role="status"
                       aria-hidden="true"
                     ></span>
-                    Booking Confirmed,redirecting to payment....
+                    Đang thanh toán....
                   </>
                 ) : (
-                  "Confirm Booking and proceed to payment"
+                  "Chấp nhận và đang thanh toán"
                 )}
               </Button>
             ) : isBookingConfirmed ? (
               <div className="d-flex justify-content-center align-items-center">
                 <div className="spinner-border text-primary" role="status">
-                  <span className="sr-only">Loading</span>
+                  <span className="sr-only">Đang tải dữ liệu</span>
                 </div>
               </div>
             ) : null}
           </>
         ) : (
-          <p className="text-danger">
-            {" "}
-            Check-out date must be after check-in-date
-          </p>
+          <p className="text-danger"> Ngày rời phòng phải sau ngày ở lại</p>
         )}
       </div>
     </div>

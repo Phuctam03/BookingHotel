@@ -54,9 +54,9 @@ const EditRoom = () => {
       const respone = await ApiRoom.updateRoom(roomId, room);
       if (respone.status === 200) {
         setSuccessMessage("Room updated succesfully!");
-        const updateRoomData = await ApiRoom.getRoomById(roomId);
-        setRoom(updateRoomData);
-        setImagePreview(updateRoomData.photo);
+        // const updateRoomData = await ApiRoom.getRoomById(roomId);
+        // setRoom(updateRoomData);
+        // setImagePreview(updateRoomData.photo);
         setErrorMessage("");
       } else {
         setErrorMessage("Error updatring room");
@@ -67,6 +67,10 @@ const EditRoom = () => {
     }
   };
 
+  setTimeout(() => {
+    setSuccessMessage("");
+    setErrorMessage("");
+  }, 3000);
   return (
     <div>
       <>

@@ -52,7 +52,7 @@ public class BookingRoomService implements  IBookingRoomService{
             room.addBooking(bookingRequest);
             bookingRoomRepository.save(bookingRequest);
         }else {
-            throw new InvalidBookingRequestException("Sorry,This room has been booked for the selected dates");
+            throw new InvalidBookingRequestException("Xin lỗi Nhưng Phòng này đã có người đặt , hãy chọn Phòng khác");
         }
         return  bookingRequest.getBookingConfirmationCode();
 

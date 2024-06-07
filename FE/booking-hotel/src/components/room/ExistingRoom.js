@@ -9,12 +9,14 @@ import { FaEdit, FaEye, FaPlus, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const ExistingRoom = () => {
-  const [rooms, setRooms] = useState([{ id: "", roomType: "", roomPrice: "" }]);
+  const [rooms, setRooms] = useState([
+    { id: "", roomType: "", roomPrice: "", photo: null },
+  ]);
   const [currentPage, setCurrentPage] = useState(1);
   const [roomsPerPage] = useState(8);
   const [isLoading, setIsLoading] = useState(false);
   const [filteredRooms, setFilteredRooms] = useState([
-    { id: "", roomType: "", roomPrice: "" },
+    { id: "", roomType: "", roomPrice: "", photo: null },
   ]);
   const [selectedRoomType, setSelectedRoomType] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -87,7 +89,7 @@ const ExistingRoom = () => {
           <p className="alert alert-success mt-5">{successMessage}</p>
         )}
         {errorMessage && (
-          <p className="alert alert-danger mt-5">{successMessage}</p>
+          <p className="alert alert-danger mt-5">{errorMessage}</p>
         )}
       </div>
 
@@ -97,7 +99,7 @@ const ExistingRoom = () => {
         <>
           <section className="mt-5 mb-5 container">
             <div className="d-flex justify-content-between mb-3 mt-5">
-              <h2>Existing rooms</h2>
+              <h2>Danh sách Phòng</h2>
             </div>
             <Row>
               <Col md={6} className="mb-3 mb-md-0">
@@ -110,18 +112,18 @@ const ExistingRoom = () => {
               <Col md={6} className="d-flex justify-content-end">
                 <Link to={"/add/room"}>
                   <FaPlus></FaPlus>
-                  Add New Room
+                  Thêm Một Phòng
                 </Link>
               </Col>
             </Row>
-            <table className="table table-bordered table-hover">
+            <table className="table table-bordered table-hover ">
               <thead>
                 <tr className="text-center">
                   <th>ID</th>
-                  <th>photoRoom</th>
-                  <th>Room Type</th>
-                  <th>Room Price</th>
-                  <th colSpan={2}>Actions</th>
+                  <th>Ảnh</th>
+                  <th>Loại phòng</th>
+                  <th>Giá Phòng</th>
+                  <th colSpan={2}>Hành Động</th>
                 </tr>
               </thead>
               <tbody>
@@ -142,18 +144,14 @@ const ExistingRoom = () => {
                     </td>
                     <td>{room.roomType}</td>
                     <td>{room.roomPrice}</td>
-                    <td className="gap-2"></td>
                     <td>
                       <Link to={`/edit-room/${room.id}`}>
-                        <span className="btn btn-info btn-sm">
-                          <FaEye />
-                        </span>
-                        <span className="btn btn-warning btn-sm">
+                        <span className="btn btn-warning btn-sm ">
                           <FaEdit />
                         </span>
                       </Link>
                       <button
-                        className="btn btn-danger btn-sm"
+                        className="btn btn-danger btn-sm mx-2 "
                         onClick={() => handleDelete(room.id)}
                       >
                         <FaTrashAlt />

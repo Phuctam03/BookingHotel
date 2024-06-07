@@ -15,7 +15,7 @@ const NavBar = () => {
   const userRole = localStorage.getItem("userRole");
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary px-5 shadow mt-5 stick-top">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary px-5 shadow mt-5 stick-top ">
       <div className="container">
         <Link to={"/"} className="navbar-brand ">
           <span className="hotel-color">lakeSide Hotel</span>
@@ -40,13 +40,13 @@ const NavBar = () => {
                 aria-current="page"
                 to={"/browse-all-rooms"}
               >
-                Browse all rooms
+                Danh sách tất cả phòng
               </NavLink>
             </li>
             {isLoggedIn && userRole === "ROLE_ADMIN" && (
               <li className="nav-item">
                 <NavLink className="nav-link" aria-current="page" to={"/admin"}>
-                  Admin
+                  Quản trị viên
                 </NavLink>
               </li>
             )}
@@ -55,7 +55,7 @@ const NavBar = () => {
           <ul className="d-flex navbar-nav">
             <li className="navbar-item">
               <NavLink className="nav-link" to={"/find-booking"}>
-                Find My Booking
+                Tìm Kiếm Vé Đặt Phòng
               </NavLink>
             </li>
 
@@ -70,7 +70,7 @@ const NavBar = () => {
                 aria-expanded="false"
                 onClick={handleAccountClick}
               >
-                Account
+                Tài Khoản
               </NavLink>
 
               <ul
@@ -83,7 +83,7 @@ const NavBar = () => {
                   </li>
                 ) : (
                   <Link className="dropdown-item" to={"/login"}>
-                    Login
+                    Đăng Nhập
                   </Link>
                 )}
               </ul>

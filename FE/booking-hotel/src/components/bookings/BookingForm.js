@@ -106,10 +106,10 @@ export default function BookingForm() {
         <div className="row">
           <div className="col-md-6">
             <div className="card card-body mt-5">
-              <h4 className="card card-title">Reserve Room</h4>
+              <h4 className="card card-title">Phòng đặt</h4>
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Group>
-                  <Form.Label htmlFor="guestName">Full Name:</Form.Label>
+                  <Form.Label htmlFor="guestName">Tên đầy đủ:</Form.Label>
                   <Form.Control
                     required
                     type="text"
@@ -120,7 +120,7 @@ export default function BookingForm() {
                     onChange={handleInputChange}
                   />
                   <Form.Control.Feedback type="invalid">
-                    Please enter your fullname
+                    xin điền đầy đủ thông tin
                   </Form.Control.Feedback>
                 </Form.Group>
 
@@ -136,16 +136,14 @@ export default function BookingForm() {
                     onChange={handleInputChange}
                   />
                   <Form.Control.Feedback type="invalid">
-                    Please enter your email
+                    xin hãy nhập email
                   </Form.Control.Feedback>
                 </Form.Group>
                 <fieldset style={{ border: "2px" }}>
-                  <legend>Loading period</legend>
+                  <legend>Hành Chờ</legend>
                   <div className="row">
                     <div className="col-6">
-                      <Form.Label htmlFor="checkInDate">
-                        Check-In date::
-                      </Form.Label>
+                      <Form.Label htmlFor="checkInDate">Ngày đến:</Form.Label>
                       <Form.Control
                         required
                         type="date"
@@ -156,14 +154,12 @@ export default function BookingForm() {
                         min={moment().format("MMM Do, YYYY")}
                       />
                       <Form.Control.Feedback type="invalid">
-                        Please select a check-in-date
+                        xin hãy chọn ngày đến
                       </Form.Control.Feedback>
                     </div>
 
                     <div className="col-6">
-                      <Form.Label htmlFor="checkOutDate">
-                        Check-Out-date::
-                      </Form.Label>
+                      <Form.Label htmlFor="checkOutDate">Ngày Rời</Form.Label>
                       <Form.Control
                         required
                         type="date"
@@ -174,7 +170,7 @@ export default function BookingForm() {
                         min={moment().format("MMM Do, YYYY")}
                       />
                       <Form.Control.Feedback type="invalid">
-                        Please select a check-out-date
+                        xin hãy chọn ngày rời
                       </Form.Control.Feedback>
                     </div>
                     {errorMessage && (
@@ -186,10 +182,12 @@ export default function BookingForm() {
                 </fieldset>
 
                 <fieldset>
-                  <legend>Number of guest</legend>
+                  <legend>số khách hàng ở</legend>
                   <div className="row">
                     <div className="col-6">
-                      <Form.Label htmlFor="numberOfAdults">Adults :</Form.Label>
+                      <Form.Label htmlFor="numberOfAdults">
+                        người trưởng thành :
+                      </Form.Label>
                       <Form.Control
                         required
                         type="number"
@@ -201,13 +199,13 @@ export default function BookingForm() {
                         placeholder="0"
                       />
                       <Form.Control.Feedback type="invalid">
-                        Please select at least 1 adult.
+                        ít nhất 1 người trưởng thành.
                       </Form.Control.Feedback>
                     </div>
 
                     <div className="col-6">
                       <Form.Label htmlFor="numberOfChildren">
-                        Children :
+                        Trẻ con :
                       </Form.Label>
                       <Form.Control
                         required
@@ -224,7 +222,7 @@ export default function BookingForm() {
                 </fieldset>
 
                 <div className="form-group mt-2 mb-2">
-                  <button className="btn btn-hotel">Continue</button>
+                  <button className="btn btn-hotel">Tiếp tục</button>
                 </div>
               </Form>
             </div>

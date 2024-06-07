@@ -39,7 +39,7 @@ export default function Login() {
   return (
     <section className="container col-6 mt-5 mb-5">
       {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
-      <h2>Login</h2>
+      <h2>Đăng Nhập</h2>
       <form onSubmit={handleSubmit}>
         <div className="row mb-3">
           <label htmlFor="email" className="col-sm-2 col-form-label">
@@ -59,7 +59,7 @@ export default function Login() {
 
         <div className="row mb-3">
           <label htmlFor="password" className="col-sm-2 col-form-label">
-            Password
+            Mật Khẩu
           </label>
           <div>
             <input
@@ -79,10 +79,10 @@ export default function Login() {
             className="btn btn-hotel"
             style={{ marginRight: "10px" }}
           >
-            Login
+            Đăng Nhập
           </button>
           <span style={{ marginLeft: "10px" }}>
-            Don't have an account yet? <Link to={"/register"}>Register</Link>
+            Bạn Chưa có tài Khoản? <Link to={"/register"}>Đăng Kí</Link>
           </span>
         </div>
       </form>

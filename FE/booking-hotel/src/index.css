@@ -195,7 +195,7 @@ h2 {
 /* The header banner */
 .header-banner {
   background-image: url("./assets/images/services-1.jpg");
-  background-size: cover; /*ko lam hinh nen bi bien dang*/
+  background-size: cover;
   background-position: center;
   position: relative;
   height: 80vh;
@@ -204,6 +204,47 @@ h2 {
 .header-banner {
   position: relative;
   height: 500px;
+}
+
+.detail-photo {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 300px;
+  width: 100%;
+  filter: brightness(60%);
+}
+.detail-title {
+  position: absolute;
+  top: 200px;
+  left: 40%;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: oblique;
+  font-size: 40px;
+  color: white;
+}
+.text {
+  color: crimson;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.btn-detail {
+  background-color: rgb(88, 53, 113);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 5px;
+}
+.btn-detail:hover {
+  background-color: rebeccapurple;
+  color: #fff;
+  transition: 1s;
+  outline-color: transparent;
+  outline-style: solid;
 }
 
 @media only screen and (max-width: 768px) {
